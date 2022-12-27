@@ -7,10 +7,6 @@ import android.widget.Button
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
-    /*override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-    }*/
 
     lateinit var actions: TextView
     lateinit var result:TextView
@@ -82,7 +78,7 @@ class MainActivity : AppCompatActivity() {
                     //Получаю 1-е число и вывожу его в результат
                     operand1 = inputLine.toFloat()
                     if (operation == "+/-") {
-                        operand1 *= -1 //Меняю знак
+                        //operand1 *= -1 //Меняю знак
                         lastChar = operation
                     }
                     result.text = operand1.toString()
@@ -91,7 +87,7 @@ class MainActivity : AppCompatActivity() {
                         //Получаю 2-е число
                         operand2 = inputLine.toFloat()
                         if (operation == "+/-") {
-                            operand2 *= -1 //Меняю знак
+                            //operand2 *= -1 //Меняю знак
                             lastChar = operation
                         } else { //Вызываю выполнение операции
                             commitOperation(operand2!!, lastOperation)
