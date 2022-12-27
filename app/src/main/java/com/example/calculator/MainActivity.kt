@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     var lastOperation = "="
     var operand1: Float? = null
     var operand2: Float? = null
+    val notNullOperand: Float = 1F
     var flag = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -78,7 +79,9 @@ class MainActivity : AppCompatActivity() {
                     //Получаю 1-е число и вывожу его в результат
                     operand1 = inputLine.toFloat()
                     if (operation == "+/-") {
-                        //operand1 *= -1 //Меняю знак
+                        //Меняю знак
+                        notNullOperand.let { operand1!! * -1}
+                        operand1 = notNullOperand
                         lastChar = operation
                     }
                     result.text = operand1.toString()
@@ -87,7 +90,9 @@ class MainActivity : AppCompatActivity() {
                         //Получаю 2-е число
                         operand2 = inputLine.toFloat()
                         if (operation == "+/-") {
-                            //operand2 *= -1 //Меняю знак
+                            //Меняю знак
+                            notNullOperand.let { operand2!! * -1}
+                            operand2 = notNullOperand
                             lastChar = operation
                         } else { //Вызываю выполнение операции
                             commitOperation(operand2!!, lastOperation)
